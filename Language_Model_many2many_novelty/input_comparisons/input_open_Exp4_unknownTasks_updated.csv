@@ -1,0 +1,5 @@
+ID,Ours,PDDL
+0,to open bleach_cleanser 2 \n,(:goal (and (opened bleach_cleanser 2)))) \n
+1,to open gelatin_box 22 \n,(:goal (and (opened gelatin_box 22)))) \n
+2,to open marker 30 \n,(:goal (and (opened marker 30)))) \n
+3,to open cracker_box 6 \n,(:goal (and (opened cracker_box 6)))) \n

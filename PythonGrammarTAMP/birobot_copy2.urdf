@@ -1,0 +1,352 @@
+<?xml version="0.0" ?>
+<robot name="Assem1_forURDF">
+	<link name="world">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.00000"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+	</link>
+	<link name="base_link">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00447 -0.00000 -0.03475"/>
+			<mass value="1.29600"/>
+			<inertia ixx="0.00592" ixy="0" ixz="0" iyy="0.00246" iyz="0" izz="0.00700"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_0_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_RTA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.06564"/>
+			<mass value="0.57090"/>
+			<inertia ixx="0.00127" ixy="0" ixz="0" iyy="0.00103" iyz="0" izz="0.00082"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_RTA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_1_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_RTA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_RPA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.03615 -0.02270 0.00000"/>
+			<mass value="0.12686"/>
+			<inertia ixx="0.00015" ixy="0" ixz="0" iyy="0.00015" iyz="0" izz="0.00015"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_RPA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_2_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_RPA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_RSA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00086 -0.04199 -0.05706"/>
+			<mass value="0.87629"/>
+			<inertia ixx="0.01108" ixy="0" ixz="0" iyy="0.01133" iyz="0" izz="0.00138"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_RSA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_3_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_RSA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_REA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.03365 -0.00931 -0.09728"/>
+			<mass value="0.36461"/>
+			<inertia ixx="0.00110" ixy="0" ixz="0" iyy="0.00117" iyz="0" izz="0.00043"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_REA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_4_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_REA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_RWA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00001 -0.00004 -0.03504"/>
+			<mass value="0.26902"/>
+			<inertia ixx="0.00026" ixy="0" ixz="0" iyy="0.00026" iyz="0" izz="0.00026"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_RWA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_5_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_RWA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_LTA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 0.00000 0.06564"/>
+			<mass value="0.57090"/>
+			<inertia ixx="0.00127" ixy="0" ixz="0" iyy="0.00103" iyz="0" izz="0.00082"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LTA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_6_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LTA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_LPA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.03857 0.02343 0.00000"/>
+			<mass value="0.12686"/>
+			<inertia ixx="0.00015" ixy="0" ixz="0" iyy="0.00015" iyz="0" izz="0.00014"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LPA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_7_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LPA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_LSA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00086 0.04199 -0.05706"/>
+			<mass value="0.87629"/>
+			<inertia ixx="0.01108" ixy="0" ixz="0" iyy="0.01133" iyz="0" izz="0.00138"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LSA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_8_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LSA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_LEA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.03363 -0.00935 -0.09723"/>
+			<mass value="0.36461"/>
+			<inertia ixx="0.00110" ixy="0" ixz="0" iyy="0.00117" iyz="0" izz="0.00043"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LEA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_9_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LEA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="Link_LWA">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00003 0.00003 -0.03504"/>
+			<mass value="0.26902"/>
+			<inertia ixx="0.00026" ixy="0" ixz="0" iyy="0.00026" iyz="0" izz="0.00026"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LWA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_10_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source/Assem1_forURDF/meshes/Link_LWA.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="mug_baseLink">
+		<inertial>
+			<origin rpy="0.00000 1.57080 -0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<mass value="0.10000"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 1.57080 -0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="C:\Users\David\OneDrive - National University of Singapore\PhD_work\Code\TAMP_HighLevel\Visual_Studio\source\mug_forURDF/textured.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_-1_0">
+				<color rgba="1.00000 1.00000 1.00000 1.00000" />
+			</material>
+		</visual>
+	</link>
+	<joint name="fixed" type="fixed">
+		<parent link="world"/>
+		<child link="base_link"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="Joint_RTA" type="continuous">
+		<parent link="base_link"/>
+		<child link="Link_RTA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="3.14159 -0.00000 0.00000" xyz="-0.00070 -0.05500 -0.00400"/>
+		<axis xyz="0.00000 0.00000 -1.00000"/>
+	</joint>
+	<joint name="Joint_RPA" type="continuous">
+		<parent link="Link_RTA"/>
+		<child link="Link_RPA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="-3.14159 -0.00000 0.00000" xyz="0.03499 0.00072 -0.07000"/>
+		<axis xyz="0.99979 -0.02046 0.00000"/>
+	</joint>
+	<joint name="Joint_RSA" type="continuous">
+		<parent link="Link_RPA"/>
+		<child link="Link_RSA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.03710 -0.04725 0.00000"/>
+		<axis xyz="-0.02046 -0.99979 0.00000"/>
+	</joint>
+	<joint name="Joint_REA" type="continuous">
+		<parent link="Link_RSA"/>
+		<child link="Link_REA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00065 -0.03199 -0.30000"/>
+		<axis xyz="0.02046 0.99979 0.00000"/>
+	</joint>
+	<joint name="Joint_RWA" type="continuous">
+		<parent link="Link_REA"/>
+		<child link="Link_RWA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.03520 -0.00928 -0.15300"/>
+		<axis xyz="0.00000 0.00000 -1.00000"/>
+	</joint>
+	<joint name="Joint_LTA" type="continuous">
+		<parent link="base_link"/>
+		<child link="Link_LTA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00070 0.05500 -0.00400"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="Joint_LPA" type="continuous">
+		<parent link="Link_LTA"/>
+		<child link="Link_LPA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 0.00000 -0.02046" xyz="0.03924 -0.00080 0.07000"/>
+		<axis xyz="-1.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="Joint_LSA" type="continuous">
+		<parent link="Link_LPA"/>
+		<child link="Link_LSA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.02046" xyz="-0.03812 0.04800 0.00000"/>
+		<axis xyz="0.02046 0.99979 0.00000"/>
+	</joint>
+	<joint name="Joint_LEA" type="continuous">
+		<parent link="Link_LSA"/>
+		<child link="Link_LEA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00106 0.05199 -0.30000"/>
+		<axis xyz="0.02046 0.99979 0.00000"/>
+	</joint>
+	<joint name="Joint_LWA" type="continuous">
+		<parent link="Link_LEA"/>
+		<child link="Link_LWA"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.03520 -0.00928 -0.15300"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="joint_dummy1" type="fixed">
+		<parent link="Link_RWA"/>
+		<child link="mug_baseLink"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.10000"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+</robot>
