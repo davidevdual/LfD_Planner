@@ -1,0 +1,8 @@
+(approach right_hand initial_location_righthand pitcher_base)
+(enclose right_hand pitcher_base)
+(raise right_hand pitcher_base location_raised)
+(approach right_hand pitcher_base mug)
+(pour right_hand pitcher_base mug location_raised)
+(approach left_hand initial_location_lefthand mug)
+(enclose left_hand mug)
+; cost = 7 (unit cost)

@@ -1,0 +1,20 @@
+#PBS -P volta_pilot
+#PBS -j oe
+#PBS -N pytorch
+#PBS -q volta_gpu
+#PBS -l select=1:ncpus=10:mem=30gb:ngpus=1
+#PBS -l walltime=72:00:00
+
+cd $PBS_O_WORKDIR;
+np=$(cat ${PBS_NODEFILE} | wc -l);
+
+image="/nfs/app1/common/singularity-img/3.0.0/pytorch_1.10.1_cuda_11.3.1_cudnn8-py38.sif"
+
+singularity exec -e $image bash << EOF > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
+
+PYTHONPATH=$PYTHONPATH:/home/svu/e0348847/volta_pypkg/lib/python3.8/site-packages
+export PYTHONPATH
+
+python train.py
+
+EOF

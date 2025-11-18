@@ -1,0 +1,9 @@
+﻿ID,Ours,PDDL
+0,to pour pitcher_base 31 into mug 11 \n,(:goal (and (poured pitcher 31 mug 11)))) \n
+1,to pour sugar_box 2 into mug 32 \n,(:goal (and (poured pitcher 31 mug 11)))) \n
+2,to pour tuna_fish_can 14 into bowl 7 \n,(:goal (and (poured pitcher 31 mug 11)))) \n
+3,to pour tomato_soup_can 15 into bowl 30 \n,(:goal (and (poured pitcher 31 mug 11)))) \n
+4,to pour pudding_box 9 into bowl 20 \n,(:goal (and (poured pitcher 31 mug 11)))) \n
+5,to pour mustard_bottle 1 into bowl 18 \n,(:goal (and (poured pitcher 31 mug 11)))) \n
+6,to pour gelatin_box 12 into bowl 30 \n,(:goal (and (poured pitcher 31 mug 11)))) \n
+7,to pour cracker_box 31 into bowl 15 \n,(:goal (and (poured pitcher 31 mug 11)))) \n

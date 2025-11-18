@@ -1,0 +1,9 @@
+﻿ID,Ours,PDDL
+0,to pass banana 19 to experimenter_hand 17 \n,(:goal (and (passed banana 19 experimenter_hand 17)))) \n
+1,to pass bowl 24 to experimenter_hand 32 \n,(:goal (and (passed banana 19 experimenter_hand 17)))) \n
+2,to pass extra_large_clamp 9 to experimenter_hand 14 \n,(:goal (and (passed banana 19 experimenter_hand 17)))) \n
+3,to pass master_chef_can 21 to experimenter_hand 7 \n,(:goal (and (passed banana 19 experimenter_hand 17)))) \n
+4,to pass mustard_bottle 23 to experimenter_hand 13 \n,(:goal (and (passed banana 19 experimenter_hand 17)))) \n
+5,to pass power_drill 6 to experimenter_hand 29 \n,(:goal (and (passed banana 19 experimenter_hand 17)))) \n
+6,to pass tomato_soup_can 8 to experimenter_hand 15 \n,(:goal (and (passed banana 19 experimenter_hand 17)))) \n
+7,to pass wood_block 4 to experimenter_hand 18 \n,(:goal (and (passed banana 19 experimenter_hand 17)))) \n

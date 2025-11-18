@@ -1,0 +1,12 @@
+﻿ID,Ours,PDDL
+0,to open bleach_cleanser 31 \n,(:goal (and (opened bleach_cleanser 31)))) \n
+1,to open gelatin_box 30 \n,(:goal (and (opened bleach_cleanser 6)))) \n
+2,to open marker 10 \n,(:goal (and (opened bleach_cleanser 15)))) \n
+3,to open master_chef_can 9 \n,(:goal (and (opened bleach_cleanser 15)))) \n
+4,to open mustard_bottle 19 \n,(:goal (and (opened bleach_cleanser 27)))) \n
+5,to open pitcher_base 12 \n,(:goal (and (opened bleach_cleanser 7)))) \n
+6,to open potted_meat_can 16 \n,(:goal (and (opened bleach_cleanser 10)))) \n
+7,to open sugar_box 9 \n,(:goal (and (opened bleach_cleanser 3)))) \n
+8,to open tomato_soup_can 19 \n,(:goal (and (opened bleach_cleanser 12)))) \n
+9,to open tuna_fish_can 21 \n,(:goal (and (opened bleach_cleanser 23)))) \n
+10,to open cracker_box 14 \n,(:goal (and (opened bleach_cleanser 20)))) \n
