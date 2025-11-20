@@ -37,6 +37,11 @@ torch.device('cuda');
 device = "cuda";
 
 # Write all the content of a subset to a csv file
+# @input dataset The dataset object
+# @input subset The subset to write into a csv file
+# @input sequence_length The length of the input sequence
+# @input input_name_dir The absolute path to the csv file
+# #@return 0 if everything is ok
 def dump_subset_file(dataset,subset,sequence_length,input_name_dir):
     if len(subset)<=0 or sequence_length<=0 or input_name_dir=='':
         raise Exception("[train.py] Wrong input.");
@@ -54,16 +59,39 @@ def dump_subset_file(dataset,subset,sequence_length,input_name_dir):
 
 #Select the last column since it only contains the losses for the predicted word, which is what we are interested in.
 # Then, we compute the sum of all those losses and divide by the number of plans. We must make sure that the number of plans is not 0.
+# @input loss The loss tensor
+# @input nb_plans The number of plans in the batch
+# @return The computed loss
 def compute_loss(loss,nb_plans):
     if nb_plans<=0:
         raise Exception("[train.py] The number of plans cannot be less or equal to zero.");
     return torch.div(torch.sum(loss[:]),nb_plans);
 
+# Test the loss function
+# @input model The LSTM model
+# @input y
+# @input y_pred_transpose The transposed predicted output
+# @return 0 if everything is ok
 def test_loss(model,y_pred_transpose,y):
     probas = model.softmax(y_pred_transpose);
     log_probas = -1*model.log_softmax(y_pred_transpose);
     return 0;
 
+# Train the LSTM model
+# @input resultsCSV_dir_to_Save The absolute path to the "results.csv" file where all numerical results are saved
+# @input now Time
+# @input results Numpy array containing all numerical results
+# @input dataset The dataset object
+# @input subsets List containing the training and testing subsets
+# @input metrics The metrics object
+# @input model The LSTM model
+# @input model_dir The absolute path to the directory where the model is saved
+# @input input_name_dir The absolute path to the directory where the input csv files are saved
+# @input root_dir The absolute path to the root directory where all information is saved
+# @input results_file_dir The absolute path to the directory where the "results.csv" file is saved
+# @input parameters List containing all parameters to optimise
+# @input args The arguments object
+# @return current_results Numpy array containing the numerical results obtained with the current set of parameters
 def train(resultsCSV_dir_to_Save,now,results,dataset,subsets,metrics,model,model_dir,input_name_dir,root_dir,results_file_dir,parameters,args):
 
     # Get the mapping between the numerical indices and the words
@@ -426,6 +454,7 @@ def create_folder(max_epochs,batch_size,sequence_length,learning_rate,lstm_size,
 
     return path_to_save,model_dir,metrics_dir,figures_dir,results_file_dir;
     
+# Main function. Tune the parameters here.
 def main():
 
     # Numpy array containing all information. It will be saved in the results folder
@@ -433,7 +462,7 @@ def main():
     resultsCSV_dir_to_Save = create_results_file(results);# Create the results.csv file to save all the results from the training, testing, and validation
 
     # Parameters to optimise
-    max_epochs_list = [1];
+    max_epochs_list = [300];
     batch_size_list = [300];# Number of action sequences that go into one batch
     sequence_length_list = [7];# The number of words that are used as input to the neural network. The rest is padded. For 'open' it is 4. For the rest it is 7.
     learning_rate_list = [0.005];#0.005
@@ -441,7 +470,7 @@ def main():
     embedding_dim_list = [128];#128
     num_layers_list = [1];
     dropout_list = [0];
-    augmentations = [2];# Number of times each sentence must be augmented. An augmentation of 1 does not modify the dataset
+    augmentations = [3];# Number of times each sentence must be augmented. An augmentation of 1 does not modify the dataset
 
     combinations = np.array(np.meshgrid(max_epochs_list,batch_size_list,sequence_length_list,learning_rate_list,lstm_size_list,num_layers_list,dropout_list)).T.reshape(-1,7);
     now = datetime.now().date();# Get only the date 
@@ -455,7 +484,7 @@ def main():
     args = parser.parse_args();
     
     parent_dir = Path(__file__).resolve().parent.parent;# Make it a relative path for simplicity
-    dataset = Dataset(args,os.path.join('datasets','Exp_4','annotations_video_IRB_pass.csv'));
+    dataset = Dataset(args,os.path.join('datasets','Exp4_Normal','annotations_video_IRB_pour.csv'));
     metrics = Metrics(dataset);
 
     # Split the dataset into training and testing

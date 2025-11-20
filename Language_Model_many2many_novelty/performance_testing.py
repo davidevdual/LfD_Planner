@@ -1,3 +1,12 @@
+'''
+    File name: performance_testing.py
+    Author: David Carmona
+    Date created: 01/12/2022
+    Date last modified: 19/11/2025
+    Python Version: 3.10 (64-bit)
+    Description: Run the experiments to compare the performance of our learning-based Task Planner with Fast Downward
+'''
+
 import argparse
 import time
 import torch
@@ -27,6 +36,9 @@ T = TypeVar('T');
 random.seed(10);
 
 # Function to read a csv file and insert each action plan into a list
+# @input: dataset_dir: directory of the csv file
+# @input: field: name of the field/column where the action plans are stored
+# @output: text: list of action plans
 def load_rows_list(dataset_dir,field):
     if type(dataset_dir)!=str or len(dataset_dir)<=1 or type(field)!=str or len(field)<=1:
         raise Exception("[performance_testing.py] Wrong input.");
@@ -39,6 +51,15 @@ def load_rows_list(dataset_dir,field):
         raise Exception("[performance_testing.py] Wrong computation.");
     return text;
 
+# Function that tests the network on a given input sentence
+# @input: dataset: Dataset object containing the vocabulary and other information
+# @input: model: Model object containing the trained network    
+# @input: text: input sentence to be tested
+# @input: novel_plans: NovelPlans object containing methods to deal with novel goals
+# @input: target_dataset: Dataset object containing the training dataset
+# @input: task_name: name of the task to be executed
+# @output: indices: list of words predicted by the network
+# @output: execution_time: time taken to infer the action plan
 def test_network(dataset,model,text,novel_plans,target_dataset,task_name):
     words = np.array(text.split(' ')).reshape(-1,1);
     batch_size = 1;
@@ -95,11 +116,11 @@ def test_ourTP(text,dataset_name,model_path,sequence_length,task_name):
     args = parser.parse_args();
 
     dataset_path = os.path.join('datasets',dataset_name);
+    print("dataset_path = ",dataset_path);
     dataset = Dataset(args,dataset_path);
     device = torch.device('cpu');
     print("model_path = ",model_path);
     model = Model(dataset,128,128,1,0);
-    model_path = os.path.join(os.path.dirname(__file__),'models','model_exp4.pth');
     model.load_state_dict(torch.load(model_path, map_location='cpu', weights_only=False));
     model.eval();
     dataset_size,train_size,test_size = utils.compute_sizes(dataset,0.8,0.2);
@@ -128,12 +149,22 @@ def test_ourTP(text,dataset_name,model_path,sequence_length,task_name):
 
     return actionPlan,execution_time;
 
+# Function that tests Fast Downward on a given input task
+# @input: task: input task in PDDL format
+# @input: algo: Fast Downward algorithm to be used
+# @input: line_to_modify: line number in the PDDL file to be modified
+# @input: problemfilename: name of the PDDL problem file
+# @input: domainfilename: name of the PDDL domain file
+# @output: exec_time: time taken by Fast Downward to infer the action plan
 def test_FD(task,algo,line_to_modify,problemfilename,domainfilename):
     print("domainfilename = ",domainfilename);
     planner_FD = FastDownward(task,algo,line_to_modify,problemfilename,domainfilename);
     exec_time = planner_FD.get_total_taskPlanning_time();
     return exec_time;
 
+# Function that creates a folder if it does not exist
+# @input: dir_name: name of the directory to be created
+# @output: None
 def create_folder(dir_name):
     dirname = os.path.dirname(__file__);
     dir_to_create = os.path.join(dirname,dir_name);
@@ -144,19 +175,29 @@ def create_folder(dir_name):
     except FileExistsError:
         pass;
 
+# Function that dumps a matrix into a csv file
+# @input: mat_to_write: matrix to be written into the csv file
+# @input: input_name_dir: directory of the csv file
+# @output: 0 if the operation is successful
 def dump_subset_file(mat_to_write,input_name_dir):
     np.savetxt(input_name_dir,mat_to_write,fmt="%10s",delimiter=",");
     return 0;
 
-def main():
+# Main function
+# @input: exp_name: name of the experiment
+# @input: model_name: name of the model to be used
+# @input: task_name: name of the task to be executed
+# @input: task_type: type of task to be executed
+# @input: dataset_name: name of the dataset to be used
+# @input: objects_names: list of names of the objects to be used in Experiment 2
+# @input: positions_names: list of names of the positions to be used in Experiment 3
+# @output: None
+def main(exp_name, model_name, task_name, task_type, dataset_name, objects_names, positions_names):
 
     # Decide whether to run the comparisons test or the demonstration of the computational complexity
     # 0 is to not run the tests. 1 is to run the tests.
     comparisons_dir_name = "results_comparison";computational_complexity_dir_name = "results_computational_complexity_objects";
     computational_complexity_positions_dir_name = "results_computational_complexity_positions";
-    comparisons_tests = "normal";#Options: normal,objects,positions
-    task_name = 'pass';
-    task_type = 'knownTask';# If the task is inside the dataset, it is labelled as "knownTask". Otherwise, the label is "novelTask"
 
     # Number of times that the task planners are executed for evaluation
     nb_exec = 1;col = 1;
@@ -168,14 +209,30 @@ def main():
         raise Exception("[performance_testing.py] Unrecognised task.");
 
     # Task to execute for Fast Downward and the learning-based planner
-    #task_FD_list = ['(:goal (and (poured pitcher 31 cup 11))))','(:goal (and (poured pitcher 18 cup 1))))'];
-    #task_ours_list = ['to pour pitcher 31 into cup 11','to pour pitcher 18 into cup 1'];
-    input_file_dir =  os.path.join(os.path.dirname(__file__),'input_comparisons','input_pass_Exp4_knownTasks_updated.csv');
+    input_file_name = 'input_Exp1_knownTasks.csv'
+    if exp_name=='Exp1' and task_type=='knownTask':
+        input_file_name = 'input_Exp1_knownTasks.csv';
+    elif exp_name=='Exp1' and task_type=='unknownTask':
+        input_file_name = 'input_Exp1_unknownTasks.csv';
+    elif exp_name=='Exp4' and task_name=='open' and task_type=='knownTask':
+        input_file_name = 'input_open_Exp4_knownTasks_updated.csv';
+    elif exp_name=='Exp4' and task_name=='open' and task_type=='unknownTask':
+        input_file_name = 'input_open_Exp4_unknownTasks_updated.csv';
+    elif exp_name=='Exp4' and task_name=='pour' and task_type=='knownTask':
+        input_file_name = 'input_pour_Exp4_knownTasks_updated.csv';
+    elif exp_name=='Exp4' and task_name=='pour' and task_type=='unknownTask':
+        input_file_name = 'input_pour_Exp4_unknownTasks_updated.csv';
+    elif exp_name=='Exp4' and task_name=='pass' and task_type=='knownTask':
+        input_file_name = 'input_pass_Exp4_knownTasks_updated.csv';
+    elif exp_name=='Exp4' and task_name=='pass' and task_type=='unknownTask':
+        input_file_name = 'input_pass_Exp4_unknownTasks_updated.csv';
+
+    input_file_dir =  os.path.join(os.path.dirname(__file__),'input_comparisons',input_file_name);
     print("input_file_dir = ",input_file_dir);
     task_FD_list = load_rows_list(input_file_dir,"PDDL");
     task_ours_list = load_rows_list(input_file_dir,"Ours");
     
-    if task_name=='open' and task_type=='novelTask':
+    if exp_name=='Exp4' and task_name=='open' and task_type=='unknownTask':
         nb_exec = 25;col = 1
     else:
         list_ids = random.sample(range(0, len(task_ours_list)),100);# Select 100 inputs randomly to speed up experiments
@@ -190,15 +247,14 @@ def main():
 
     # Fast Downward algorithms to execute. Set dataset name and model name for my algorithm
     algos_list = ['lazy_greedy([cg()])','lazy_greedy([cg(),ff()])','astar(cg())']; 
-    model_path = os.path.join(os.path.dirname(__file__),'models','model_exp4.pth');
-    dataset_name = 'Exp_4/annotations_video_IRB_pass.csv';
+    model_path = os.path.join('Language_Model_many2many_novelty','models',model_name);
     
     # Variable containing all the execution times
     all_execution_times = np.zeros((1,len(algos_list)+1));
 
-    if comparisons_tests=="normal":
-        problemfilename = 'task_Exp4_pass.pddl';
-        domainfilename = 'domain_1_pass.pddl';
+    if exp_name=="Exp1":
+        problemfilename = 'task_Exp1.pddl';
+        domainfilename = 'domain_pour.pddl';
         for k in range(0,list_len_ours_list):
             task_ours = task_ours_list[k];
             task_FD = task_FD_list[k];
@@ -229,12 +285,50 @@ def main():
         unique_file_dir = os.path.join(os.path.dirname(__file__),comparisons_dir_name,'allresults_comparison.csv');
         dump_subset_file(all_execution_times,unique_file_dir);
 
-    elif comparisons_tests=="objects":
-        print("I am here inside the objects use case");
-        filename = 'task_bimanual_3.pddl';
-        #task_ours = 'to pour pitcher 31 into cup 11';# task: (:goal (and (poured pitcher 2 cup 31)))) This is the known task
-        task_ours = 'to pour pitcher 15 into cup 20';# task: (:goal (and (poured pitcher 15 cup 20)))) This is the unknown task
-        objects = 'cup pitcher cracker_box bowl gelatin_box mustard_bottle pudding_box tomato_soup_can tuna_fish_can sugar_box';
+    elif exp_name=="Exp4":
+        problemfilename = 'task_Exp4_'+task_name+'.pddl';
+        domainfilename = 'domain_'+task_name+'.pddl';
+        for k in range(0,list_len_ours_list):
+            task_ours = task_ours_list[k];
+            task_FD = task_FD_list[k];
+            execution_times = np.zeros((nb_exec,len(algos_list)+1));
+
+            # Execute the conventional Task Planner and ours
+            for k in range(0,nb_exec):
+                print("task_ours = ",task_ours);
+                actionPlan,exec_time_ourTP = test_ourTP(utils_file_string.reverse_string(task_ours),dataset_name,model_path,sequence_length,task_name);
+                actionPlan = utils_file_string.reverse_string(utils.list_to_string(actionPlan));
+                print("Our action plan: ",actionPlan);
+                execution_times[k,0] = exec_time_ourTP;
+                
+                for algo in algos_list:
+                    exec_time_FD = test_FD(task_FD,algo,14,problemfilename,domainfilename);
+                    print("Our TP execution time ",exec_time_ourTP," FD execution time: ",exec_time_FD);
+                    execution_times[k,col] = exec_time_FD;
+                    col = col + 1;
+                col = 1;
+ 
+            # Dump the results into a file
+            create_folder(comparisons_dir_name);
+            input_name_dir = os.path.join(os.path.dirname(__file__),comparisons_dir_name,'results_comparison_'+task_type+'_'+task_ours+'.csv');
+            dump_subset_file(execution_times,input_name_dir);
+            all_execution_times = np.vstack((all_execution_times,execution_times)); 
+
+        all_execution_times = np.delete(all_execution_times,(0),axis=0);# Deletes the first row. It is full of zeros
+        unique_file_dir = os.path.join(os.path.dirname(__file__),comparisons_dir_name,'allresults_comparison.csv');
+        dump_subset_file(all_execution_times,unique_file_dir);
+
+    elif exp_name=="Exp2":
+        nb_exec = 100;
+        problemfilename = 'task_Exp2_'+task_type+'.pddl';
+        domainfilename = 'domain_pour.pddl';
+        if task_type=='knownTask':
+            task_ours = 'to pour pitcher 31 into cup 11';# task: (:goal (and (poured pitcher 2 cup 31)))) This is the known task
+        elif task_type=='unknownTask':
+            task_ours = 'to pour pitcher 15 into cup 20';# task: (:goal (and (poured pitcher 15 cup 20)))) This is the unknown task
+        else:
+            raise Exception("[performance_testing.py] Wrong Input. task_type does not exist.");
+        objects = objects_names;#'cup pitcher cracker_box bowl gelatin_box mustard_bottle pudding_box tomato_soup_can tuna_fish_can sugar_box';
         execution_times = np.zeros((nb_exec,len(algos_list)+1));
 
         for k in range(0,nb_exec):
@@ -245,7 +339,7 @@ def main():
 
             for algo in algos_list:
                 objects_pddl = '(:objects '+objects+' initial_location_handleft initial_location_handright - graspable \n';
-                exec_time_FD = test_FD(objects_pddl,algo,4,filename);
+                exec_time_FD = test_FD(objects_pddl,algo,4,problemfilename,domainfilename);
                 execution_times[k,col] = exec_time_FD;
                 col = col + 1;
             col = 1;
@@ -255,11 +349,17 @@ def main():
         input_name_dir = os.path.join(os.path.dirname(__file__),computational_complexity_dir_name,'results_computational_complexity_objects'+'.csv');
         dump_subset_file(execution_times,input_name_dir);
 
-    elif comparisons_tests=="positions":
-        filename = 'task_bimanual_4.pddl';
-        #task_ours = 'to pour pitcher 31 into cup 11';# task: (:goal (and (poured pitcher 31 cup 11))))
-        task_ours = 'to pour pitcher 15 into cup 20';# task: (:goal (and (poured pitcher 15 cup 20))))
-        positions = '15 20 31 11 18 1 16 6 21 23 19 27 2 10';
+    elif exp_name=="Exp3":
+        nb_exec = 100;
+        problemfilename = 'task_Exp3_'+task_type+'.pddl';
+        domainfilename = 'domain_pour.pddl';
+        if task_type=='knownTask':
+            task_ours = 'to pour pitcher 31 into cup 11';# task: (:goal (and (poured pitcher 31 cup 11))))
+        elif task_type=='unknownTask':
+            task_ours = 'to pour pitcher 15 into cup 20';# task: (:goal (and (poured pitcher 15 cup 20))))
+        else:
+            raise Exception("[performance_testing.py] Wrong Input. task_type does not exist.");
+        positions = positions_names;#'15 20 31 11 18 1 16 6 21 23 19 27 2 10';
         execution_times = np.zeros((nb_exec,len(algos_list)+1));
 
         for k in range(0,nb_exec):
@@ -270,7 +370,7 @@ def main():
 
             for algo in algos_list:
                 positions_pddl = positions+ ' - location \n';
-                exec_time_FD = test_FD(positions_pddl,algo,6,filename);
+                exec_time_FD = test_FD(positions_pddl,algo,6,problemfilename,domainfilename);
                 execution_times[k,col] = exec_time_FD;
                 col = col + 1;
             col = 1;
@@ -284,4 +384,28 @@ def main():
         raise Exception("[performance_testing.py] Wrong input. The comparisons_tests value does not exist.");
 
 if __name__ == "__main__":
-    main();
+
+    # Experiment name. It can be 'Exp1', 'Exp2', 'Exp3', 'Exp4'
+    exp_name = 'Exp2';
+
+    # Model to run the experiments. Just put the model's name with the .pth extension
+    model_name = 'Exp2_Combinations/model_exp2_1stComb.pth';
+
+    # Name of the task. It can be 'open', 'pour' or 'pass'
+    task_name = 'pour';
+
+    # Task type. It can be 'knownTask' or 'unknownTask'
+    task_type = 'unknownTask';
+
+    # Name of the dataset to use
+    dataset_name = 'Exp2_Combinations/annotations_video_IRB_1stComb.csv';
+
+    # This is for Experiment 2 only. The number of objects will vary
+    #'cup pitcher cracker_box bowl gelatin_box mustard_bottle pudding_box tomato_soup_can tuna_fish_can sugar_box';
+    objects_names = 'cup pitcher';
+
+    # This is for Experiment 3 only. The number of positions will vary
+    # '15 20 31 11 18 1 16 6 21 23 19 27 2 10';
+    positions_names = '15 20 31 11';
+
+    main(exp_name, model_name, task_name, task_type, dataset_name, objects_names, positions_names);

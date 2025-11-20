@@ -4,48 +4,69 @@ end_version
 begin_metric
 0
 end_metric
-6
+9
 begin_variable
 var0
 -1
 2
-Atom at(handright, wood_block)
-NegatedAtom at(handright, wood_block)
+Atom at(handright, pitcher)
+NegatedAtom at(handright, pitcher)
 end_variable
 begin_variable
 var1
 -1
 2
-Atom enclosed(handright, wood_block)
-NegatedAtom enclosed(handright, wood_block)
+Atom enclosed(handright, pitcher)
+NegatedAtom enclosed(handright, pitcher)
 end_variable
 begin_variable
 var2
 -1
 2
-Atom at(handleft, wood_block)
-NegatedAtom at(handleft, wood_block)
+Atom at(handright, cup)
+NegatedAtom at(handright, cup)
 end_variable
 begin_variable
 var3
 -1
 2
-Atom enclosed(handleft, wood_block)
-NegatedAtom enclosed(handleft, wood_block)
+Atom enclosed(handright, cup)
+NegatedAtom enclosed(handright, cup)
 end_variable
 begin_variable
 var4
 -1
 2
-Atom at(experimenter_hand, wood_block)
-NegatedAtom at(experimenter_hand, wood_block)
+Atom at(handleft, pitcher)
+NegatedAtom at(handleft, pitcher)
 end_variable
 begin_variable
 var5
 -1
 2
-Atom passed(wood_block, 15, experimenter_hand, 7)
-NegatedAtom passed(wood_block, 15, experimenter_hand, 7)
+Atom enclosed(handleft, pitcher)
+NegatedAtom enclosed(handleft, pitcher)
+end_variable
+begin_variable
+var6
+-1
+2
+Atom at(handleft, cup)
+NegatedAtom at(handleft, cup)
+end_variable
+begin_variable
+var7
+-1
+2
+Atom enclosed(handleft, cup)
+NegatedAtom enclosed(handleft, cup)
+end_variable
+begin_variable
+var8
+-1
+2
+Atom poured(pitcher, 15, cup, 20)
+NegatedAtom poured(pitcher, 15, cup, 20)
 end_variable
 0
 begin_state
@@ -55,35 +76,61 @@ begin_state
 1
 1
 1
+1
+1
+1
 end_state
 begin_goal
 1
-5 0
+8 0
 end_goal
-7
+10
 begin_operator
-approach experimenter_hand wood_block
+approach handleft cup
+0
+1
+0 6 1 0
+1
+end_operator
+begin_operator
+approach handleft pitcher
 0
 1
 0 4 1 0
 1
 end_operator
 begin_operator
-approach handleft wood_block
+approach handright cup
 0
 1
 0 2 1 0
 1
 end_operator
 begin_operator
-approach handright wood_block
+approach handright pitcher
 0
 1
 0 0 1 0
 1
 end_operator
 begin_operator
-enclose handleft wood_block
+enclose handleft cup
+1
+6 0
+1
+0 7 1 0
+1
+end_operator
+begin_operator
+enclose handleft pitcher
+1
+4 0
+1
+0 5 1 0
+1
+end_operator
+begin_operator
+enclose handright cup
 1
 2 0
 1
@@ -91,7 +138,7 @@ enclose handleft wood_block
 1
 end_operator
 begin_operator
-enclose handright wood_block
+enclose handright pitcher
 1
 0 0
 1
@@ -99,23 +146,27 @@ enclose handright wood_block
 1
 end_operator
 begin_operator
-pass handleft handright wood_block 15 experimenter_hand 7
-3
-4 1
+pour handleft handright pitcher 15 cup 20
+5
+6 0
+7 1
+5 0
 3 0
-1 0
+1 1
 1
-0 5 -1 0
+0 8 -1 0
 1
 end_operator
 begin_operator
-pass handright handleft wood_block 15 experimenter_hand 7
-3
-4 1
-3 0
+pour handright handleft pitcher 15 cup 20
+5
+2 0
+7 0
+5 1
+3 1
 1 0
 1
-0 5 -1 0
+0 8 -1 0
 1
 end_operator
 0
