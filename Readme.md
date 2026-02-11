@@ -78,12 +78,15 @@ git clone https://github.com/davidevdual/LfD_Planner.git
 ``` 
 LfD_Planner/
 ├── datasets/                           # Dataset and annotations
-    ├── Exp1_Normal/                    # Annotations for Experiment 1
-    ├── Exp2_Combinations/              # Annotations for Experiment 2
-    ├── Exp3_Positions/                 # Annotations for Experiment 3
-    ├── Exp4_Normal/                    # Annotations for Experiment 4
+│    ├── Exp1_Normal/                   # Annotations for Experiment 1
+│    ├── Exp2_Combinations/             # Annotations for Experiment 2
+│    ├── Exp3_Positions/                # Annotations for Experiment 3
+│    └─ Exp4_Normal/                    # Annotations for Experiment 4
 ├── classical_task_planning/            # Fast Downward planner integration
-├──
+├── executionTAMP/       
+│    └─ executionTAMP.py			    # Infer the task and motion plan from a high-level goal  
+├── grammar/                            # BACFG grammar files and utilities and task plan execution framework
+    ├──
 ```
 ### Executing program
 
