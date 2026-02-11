@@ -53,7 +53,7 @@ The full pipeline was deployed on a dual-arm robot prototype.
 
 ### Dependencies
 
-* * Python 3.10
+* Python 3.10
   * Numpy 2.2.6
   * OpenCV-Python 4.11.0.86
   * PyTorch 2.6.0+cu124
@@ -67,13 +67,24 @@ The full pipeline was deployed on a dual-arm robot prototype.
 
 * Install Visual Studio Community 2022 or the latest version from https://visualstudio.microsoft.com/downloads/
 * Download and build the Fast Downward planning system 20.06 planner as per the instructions on their website
-* 
-* Install all the dependencies listed above
+Some basic Git commands are:
+```
+git clone https://github.com/davidevdual/LfD_Planner.git
+```
 * Open the project solution file LfD_Planner.sln in Visual Studio. All the files are organised in the solution explorer
+* Install all the dependencies listed above
 
-### Models
-
-
+### Repository Structure
+``` 
+LfD_Planner/
+├── datasets/                           # Dataset and annotations
+    ├── Exp1_Normal/                    # Annotations for Experiment 1
+    ├── Exp2_Combinations/              # Annotations for Experiment 2
+    ├── Exp3_Positions/                 # Annotations for Experiment 3
+    ├── Exp4_Normal/                    # Annotations for Experiment 4
+├── classical_task_planning/            # Fast Downward planner integration
+├──
+```
 ### Executing program
 
 * How to run the program
