@@ -38,6 +38,13 @@ The learnt task planner was integrated with an RRT (Rapidly Exploring Random Tre
 A custom task execution framework couples high-level plans and robot motions.
 The full pipeline was deployed on a dual-arm robot prototype.
 
+## 🧩 Project Highlights
+
+- ✔️ 4k+ human task plans annotated using a structured grammar
+- ✔️ Learned task planner outperforms a classical AI planner
+- ✔️ End-to-end system deployed on a real robot
+- ✔️ Reduction of combinatorial explosion via demonstration learning
+
 ## Getting Started
 
 ### Dependencies
