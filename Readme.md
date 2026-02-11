@@ -47,10 +47,21 @@ The full pipeline was deployed on a dual-arm robot prototype.
 
 ## Getting Started
 
+### Hardware and Software Requirements
+* The learning-based planner was trained, tested, and evaluated against Fast Downward on a Windows 11 machine with an Intel i7-10875H CPU @2.30GHz and an NVIDIA GeForce RTX 2060 GPU.
+* Microsoft Visual Studio Community 2022 Version 17.14.20
+
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* * Python 3.10
+  * Numpy 2.2.6
+  * OpenCV-Python 4.11.0.86
+  * PyTorch 2.6.0+cu124
+* Cuda compilation tools, release 12.4, V12.4.99
+* Rest of the dependencies are listed in requirements.txt
+* Fast Downward planning system 20.06
+  * Download from: http://www.fast-downward.org/ObtainingAndRunningFastDownward
+  * Follow the instructions to build the planner
 
 ### Installing
 
