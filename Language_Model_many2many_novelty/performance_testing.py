@@ -122,7 +122,16 @@ def test_ourTP(text,dataset_name,model_path,sequence_length,task_name):
     device = torch.device('cpu');
     print("model_path = ",model_path);
     model = Model(dataset,128,128,1,0);
-    model.load_state_dict(torch.load(model_path, map_location='cpu', weights_only=False));
+
+    data = torch.load(model_path,map_location='cpu',weights_only=False);
+    if isinstance(data,dict):
+        model.load_state_dict(data);
+    elif isinstance(data,nn.Module):
+        model.load_state_dict(data.state_dict());
+    else:
+        raise TypeError("Unexpected checkpoint type: {type(data)}");
+    
+    #model.load_state_dict(torch.load(model_path, map_location='cpu', weights_only=False));
     model.eval();
     dataset_size,train_size,test_size = utils.compute_sizes(dataset,0.8,0.2);
     subsets,indices_sentences = utils.dataset_split(dataset,[train_size,test_size],1);
@@ -241,6 +250,7 @@ def main(exp_name, model_name, task_name, task_type, dataset_name, objects_names
         task_FD_list = [task_FD_list[i] for i in list_ids];
     
     list_len_ours_list = len(task_ours_list);list_len_FD_list = len(task_FD_list);
+    print("list_len_ours_list = ",list_len_ours_list);
 
     # Both lists must have same length
     if list_len_ours_list!=list_len_FD_list:
@@ -257,22 +267,25 @@ def main(exp_name, model_name, task_name, task_type, dataset_name, objects_names
         problemfilename = 'task_Exp1.pddl';
         domainfilename = 'domain_pour.pddl';
         for k in range(0,list_len_ours_list):
+            
             task_ours = task_ours_list[k];
             task_FD = task_FD_list[k];
             execution_times = np.zeros((nb_exec,len(algos_list)+1));
 
             # Execute the conventional Task Planner and ours
-            for k in range(0,nb_exec):
+            for j in range(0,nb_exec):
                 print("task_ours = ",task_ours);
+                
                 actionPlan,exec_time_ourTP = test_ourTP(utils_file_string.reverse_string(task_ours),dataset_name,model_path,sequence_length,task_name);
                 actionPlan = utils_file_string.reverse_string(utils.list_to_string(actionPlan));
                 print("Our action plan: ",actionPlan);
-                execution_times[k,0] = exec_time_ourTP;
+                execution_times[j,0] = exec_time_ourTP;
                 
                 for algo in algos_list:
+                    exec_time_FD = 2;
                     exec_time_FD = test_FD(task_FD,algo,14,problemfilename,domainfilename);
                     print("Our TP execution time ",exec_time_ourTP," FD execution time: ",exec_time_FD);
-                    execution_times[k,col] = exec_time_FD;
+                    execution_times[j,col] = exec_time_FD;
                     col = col + 1;
                 col = 1;
  
@@ -387,19 +400,19 @@ def main(exp_name, model_name, task_name, task_type, dataset_name, objects_names
 if __name__ == "__main__":
 
     # Experiment name. It can be 'Exp1', 'Exp2', 'Exp3', 'Exp4'
-    exp_name = 'Exp2';
+    exp_name = 'Exp4';
 
     # Model to run the experiments. Just put the model's name with the .pth extension
-    model_name = 'Exp2_Combinations/model_exp2_1stComb.pth';
+    model_name = 'Exp4_Normal/model_exp4_pour.pth';
 
     # Name of the task. It can be 'open', 'pour' or 'pass'
     task_name = 'pour';
 
     # Task type. It can be 'knownTask' or 'unknownTask'
-    task_type = 'unknownTask';
+    task_type = 'knownTask';
 
     # Name of the dataset to use
-    dataset_name = 'Exp2_Combinations/annotations_video_IRB_1stComb.csv';
+    dataset_name = 'Exp4_Normal/annotations_video_IRB_pour.csv';
 
     # This is for Experiment 2 only. The number of objects will vary
     #'cup pitcher cracker_box bowl gelatin_box mustard_bottle pudding_box tomato_soup_can tuna_fish_can sugar_box';
