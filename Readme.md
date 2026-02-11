@@ -87,19 +87,19 @@ LfD_Planner/
 │    └─- executionTAMP.py			    # Infer the task and motion plan from a high-level goal  
 ├── grammar/                            # BACFG grammar files and utilities and task plan execution framework
 ├── Language_Model_many2many_novelty/
-     ├── input_comparisons
-     ├── models
-     ├── dataset.py
-     ├── lefttaskplanner.py
-     ├── metrics.py
-     ├── model.py
-     ├── novelplans.py
-     ├── performance_testing.py
-     ├── test.py
-     ├── test_replaceMethod.py
-     ├── train_noNovelty.py
-     ├── utils.py
-     └─- utils_file_string.py
+│    ├── input_comparisons/             # Input comparison files for experiments
+│    ├── models/                        # Trained models for experiments
+│    ├── dataset.py                     # Dataset handling
+│    ├── lefttaskplanner.py             # LSTM-based task planner
+│    ├── metrics.py                     # Metrics for model evaluation
+│    ├── model.py                       # LSTM model definition
+│    ├── novelplans.py                  # Algorithm to deal with unseen manipulation goals
+│    ├── performance_testing.py         # Performance evaluation scripts
+│    ├── test.py                        # Test script for the model
+│    ├── test_replaceMethod.py          # Test script with replacement method for unseen goals
+│    ├── train_noNovelty.py             # Training script
+│    ├── utils.py                       # Utility functions
+│    └─- utils_file_string.py           # File string utilities
 ```
 ### Executing program
 
@@ -127,4 +127,4 @@ David Carmona: [dcmoreno@nus.edu.sg](dcmoreno@nus.edu.sg)
 
 ## License
 
-This dataset is made available under the Creative Commons Attribution 4.0 International License - see the LICENSE.md file for details
+This code is made available under the Creative Commons Attribution 4.0 International License - see the LICENSE.md file for details
