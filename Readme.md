@@ -81,12 +81,25 @@ LfD_Planner/
 │    ├── Exp1_Normal/                   # Annotations for Experiment 1
 │    ├── Exp2_Combinations/             # Annotations for Experiment 2
 │    ├── Exp3_Positions/                # Annotations for Experiment 3
-│    └─ Exp4_Normal/                    # Annotations for Experiment 4
+│    └─- Exp4_Normal/                    # Annotations for Experiment 4
 ├── classical_task_planning/            # Fast Downward planner integration
 ├── executionTAMP/       
-│    └─ executionTAMP.py			    # Infer the task and motion plan from a high-level goal  
+│    └─- executionTAMP.py			    # Infer the task and motion plan from a high-level goal  
 ├── grammar/                            # BACFG grammar files and utilities and task plan execution framework
-    ├──
+├── Language_Model_many2many_novelty/
+     ├── input_comparisons
+     ├── models
+     ├── dataset.py
+     ├── lefttaskplanner.py
+     ├── metrics.py
+     ├── model.py
+     ├── novelplans.py
+     ├── performance_testing.py
+     ├── test.py
+     ├── test_replaceMethod.py
+     ├── train_noNovelty.py
+     ├── utils.py
+     └─- utils_file_string.py
 ```
 ### Executing program
 
