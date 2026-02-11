@@ -1,4 +1,4 @@
-# Project Title
+# Learning-Based Task Planner for Dual-Arm Manipulation
 
 Simple overview of use/purpose.
 
