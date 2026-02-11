@@ -12,4 +12,4 @@
   	(at handleft initial_location_handleft)
     (at handright initial_location_handright)
   )
- (:goal (and (opened cracker_box 15)))) 
+ (:goal (and (opened tuna_fish_can 24)))) 

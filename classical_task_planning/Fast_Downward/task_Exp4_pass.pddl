@@ -12,4 +12,4 @@
     (at handright initial_location_handright)
     (at experimenter_hand initial_location_experimenter_hand)
   )
- (:goal (and (passed extra_large_clamp 29 experimenter_hand 2)))) 
+ (:goal (and (passed bowl 12 experimenter_hand 9)))) 

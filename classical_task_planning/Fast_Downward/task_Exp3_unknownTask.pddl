@@ -4,7 +4,7 @@
   (:domain domain_pour)
   (:objects cup pitcher initial_location_handleft initial_location_handright - graspable
             handright handleft - hand
-15 20 31 11 18 1 16 6 21 23 19 27 2 10 - location 
+15 20 31 11 - location 
   )
 
   (:init 

@@ -12,4 +12,4 @@
   	(at handleft initial_location_handleft)
     (at handright initial_location_handright)
   )
- (:goal (and (poured gelatin_box 9 bowl 4)))) 
+ (:goal (and (poured gelatin_box 23 bowl 11)))) 

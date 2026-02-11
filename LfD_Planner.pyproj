@@ -1736,8 +1736,8 @@
     <Content Include="classical_task_planning\Fast_Downward\task_Exp1.pddl" />
     <Content Include="classical_task_planning\Fast_Downward\task_Exp2_knownTask.pddl" />
     <Content Include="classical_task_planning\Fast_Downward\task_Exp2_unknownTask.pddl" />
-    <Content Include="classical_task_planning\Fast_Downward\task_Exp3 _unknownTask.pddl" />
     <Content Include="classical_task_planning\Fast_Downward\task_Exp3_knownTask.pddl" />
+    <Content Include="classical_task_planning\Fast_Downward\task_Exp3_unknownTask.pddl" />
     <Content Include="classical_task_planning\Fast_Downward\task_Exp4_open.pddl" />
     <Content Include="classical_task_planning\Fast_Downward\task_Exp4_pass.pddl" />
     <Content Include="classical_task_planning\Fast_Downward\task_Exp4_pour.pddl" />

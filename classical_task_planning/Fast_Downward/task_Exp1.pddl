@@ -12,4 +12,4 @@
     (at handright initial_location_handright)
   )
 
-(:goal (and (poured pitcher 2 cup 31))))
+ (:goal (and (poured pitcher 15 cup 31)))) 

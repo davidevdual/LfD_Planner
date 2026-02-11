@@ -9,64 +9,64 @@ begin_variable
 var0
 -1
 2
-Atom at(handright, pitcher)
-NegatedAtom at(handright, pitcher)
+Atom at(handright, gelatin_box)
+NegatedAtom at(handright, gelatin_box)
 end_variable
 begin_variable
 var1
 -1
 2
-Atom enclosed(handright, pitcher)
-NegatedAtom enclosed(handright, pitcher)
+Atom enclosed(handright, gelatin_box)
+NegatedAtom enclosed(handright, gelatin_box)
 end_variable
 begin_variable
 var2
 -1
 2
-Atom at(handright, cup)
-NegatedAtom at(handright, cup)
+Atom at(handright, bowl)
+NegatedAtom at(handright, bowl)
 end_variable
 begin_variable
 var3
 -1
 2
-Atom enclosed(handright, cup)
-NegatedAtom enclosed(handright, cup)
+Atom enclosed(handright, bowl)
+NegatedAtom enclosed(handright, bowl)
 end_variable
 begin_variable
 var4
 -1
 2
-Atom at(handleft, pitcher)
-NegatedAtom at(handleft, pitcher)
+Atom at(handleft, gelatin_box)
+NegatedAtom at(handleft, gelatin_box)
 end_variable
 begin_variable
 var5
 -1
 2
-Atom enclosed(handleft, pitcher)
-NegatedAtom enclosed(handleft, pitcher)
+Atom enclosed(handleft, gelatin_box)
+NegatedAtom enclosed(handleft, gelatin_box)
 end_variable
 begin_variable
 var6
 -1
 2
-Atom at(handleft, cup)
-NegatedAtom at(handleft, cup)
+Atom at(handleft, bowl)
+NegatedAtom at(handleft, bowl)
 end_variable
 begin_variable
 var7
 -1
 2
-Atom enclosed(handleft, cup)
-NegatedAtom enclosed(handleft, cup)
+Atom enclosed(handleft, bowl)
+NegatedAtom enclosed(handleft, bowl)
 end_variable
 begin_variable
 var8
 -1
 2
-Atom poured(pitcher, 15, cup, 20)
-NegatedAtom poured(pitcher, 15, cup, 20)
+Atom poured(gelatin_box, 9, bowl, 4)
+NegatedAtom poured(gelatin_box, 9, bowl, 4)
 end_variable
 0
 begin_state
@@ -86,35 +86,35 @@ begin_goal
 end_goal
 10
 begin_operator
-approach handleft cup
+approach handleft bowl
 0
 1
 0 6 1 0
 1
 end_operator
 begin_operator
-approach handleft pitcher
+approach handleft gelatin_box
 0
 1
 0 4 1 0
 1
 end_operator
 begin_operator
-approach handright cup
+approach handright bowl
 0
 1
 0 2 1 0
 1
 end_operator
 begin_operator
-approach handright pitcher
+approach handright gelatin_box
 0
 1
 0 0 1 0
 1
 end_operator
 begin_operator
-enclose handleft cup
+enclose handleft bowl
 1
 6 0
 1
@@ -122,7 +122,7 @@ enclose handleft cup
 1
 end_operator
 begin_operator
-enclose handleft pitcher
+enclose handleft gelatin_box
 1
 4 0
 1
@@ -130,7 +130,7 @@ enclose handleft pitcher
 1
 end_operator
 begin_operator
-enclose handright cup
+enclose handright bowl
 1
 2 0
 1
@@ -138,7 +138,7 @@ enclose handright cup
 1
 end_operator
 begin_operator
-enclose handright pitcher
+enclose handright gelatin_box
 1
 0 0
 1
@@ -146,7 +146,7 @@ enclose handright pitcher
 1
 end_operator
 begin_operator
-pour handleft handright pitcher 15 cup 20
+pour handleft handright gelatin_box 9 bowl 4
 5
 6 0
 7 1
@@ -158,7 +158,7 @@ pour handleft handright pitcher 15 cup 20
 1
 end_operator
 begin_operator
-pour handright handleft pitcher 15 cup 20
+pour handright handleft gelatin_box 9 bowl 4
 5
 2 0
 7 0
