@@ -1,8 +1,8 @@
-# 🦾 Learning-Based Task Planning for Dual-Arm Manipulation
+# Learning-Based Task Planning for Dual-Arm Manipulation
 
 This project proposes a learning-driven task planner for dual-arm robotic manipulation, designed to overcome the combinatorial explosion that affects conventional task and motion planning (TAMP) approaches.
 
-## 🚀 Description
+## Description
 
 Dual-arm robots are increasingly used to manipulate everyday household objects. To act effectively, these robots rely on task and motion planning, which combines:
 
@@ -13,7 +13,7 @@ Discrete task planning struggles as the number of possible object and robot stat
 
 The human demonstrations are taken from the [BiCap dataset](https://davidevdual.github.io/BiCap/).
 
-## 🧠 Key Contributions
+## Key Contributions
 
 **1. Human-Demonstrated Task Plan Dataset**
 
@@ -38,7 +38,7 @@ The learnt task planner was integrated with an RRT (Rapidly Exploring Random Tre
 A custom task execution framework couples high-level plans and robot motions.
 The full pipeline was deployed on a dual-arm robot prototype.
 
-## 🧩 Project Highlights
+## Project Highlights
 
 - ✔️ 4k+ human task plans annotated using a structured grammar
 - ✔️ Learned task planner outperforms a classical AI planner
@@ -65,8 +65,9 @@ The full pipeline was deployed on a dual-arm robot prototype.
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* Install Visual Studio Community 2022 or the latest version from https://visualstudio.microsoft.com/downloads/
+* Install all the dependencies listed above
+* Open the project solution file LfD_Planner.sln in Visual Studio. All the files are organised in the solution explorer
 
 ### Executing program
 
