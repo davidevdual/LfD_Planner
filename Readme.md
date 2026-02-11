@@ -66,8 +66,13 @@ The full pipeline was deployed on a dual-arm robot prototype.
 ### Installing
 
 * Install Visual Studio Community 2022 or the latest version from https://visualstudio.microsoft.com/downloads/
+* Download and build the Fast Downward planning system 20.06 planner as per the instructions on their website
+* 
 * Install all the dependencies listed above
 * Open the project solution file LfD_Planner.sln in Visual Studio. All the files are organised in the solution explorer
+
+### Models
+
 
 ### Executing program
 
