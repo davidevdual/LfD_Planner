@@ -118,10 +118,7 @@ command to run if program contains helper info
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+ex.[David Carmona](dcmoreno@nus.edu.sg) 
 
 ## Version History
 
