@@ -30,10 +30,7 @@ This replaces slow symbolic search with fast sequence prediction.
 **3. Performance Evaluation**
 
 Four experiments compared the LSTM-based planner with Fast Downward, a classic symbolic task planner.
-Results show that the learned planner:
-
-Significantly reduces task planning time
-Maintains capability to generalize to new goals
+Results show that the learnt planner significantly reduces task planning time.
 
 **4. Full Robot Integration**
 
