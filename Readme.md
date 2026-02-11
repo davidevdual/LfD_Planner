@@ -90,6 +90,7 @@ LfD_Planner/
 │    ├── input_comparisons/             # Input comparison files for experiments
 │    ├── models/                        # Trained models for experiments
 │    ├── dataset.py                     # Dataset handling
+│    ├── exp_comparisons.xlsx           # Experiment configurations
 │    ├── lefttaskplanner.py             # LSTM-based task planner
 │    ├── metrics.py                     # Metrics for model evaluation
 │    ├── model.py                       # LSTM model definition
@@ -99,22 +100,15 @@ LfD_Planner/
 │    ├── test_replaceMethod.py          # Test script with replacement method for unseen goals
 │    ├── train_noNovelty.py             # Training script
 │    ├── utils.py                       # Utility functions
-│    └── utils_file_string.py           # File string utilities
+└────└── utils_file_string.py           # File string utilities
 ```
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
+* For running the comparison tests between the LSTM-based planner and Fast Downward planner, navigate to the Language_Model_many2many_novelty/ directory and run:
 ```
-code blocks for commands
+* performance_testing.py
 ```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+* The various experiments can be run by changing the parameters in the performance_testing.py file. The file exp_comparisons.xlsx contains the input configurations for each experiment.
 
 ## Authors
 
