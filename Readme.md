@@ -1,10 +1,45 @@
 # 🦾 Learning-Based Task Planning for Dual-Arm Manipulation
 
-This project proposes a learning-driven task planner for dual-arm robotic manipulation, designed to overcome the combinatorial explosion that plagues conventional task-and-motion planning (TAMP) systems.
+This project proposes a learning-driven task planner for dual-arm robotic manipulation, designed to overcome the combinatorial explosion that affects conventional task and motion planning (TAMP) approaches.
 
-## Description
+## 🚀 Description
 
-An in-depth paragraph about your project and overview of use.
+Dual-arm robots are increasingly used to manipulate everyday household objects. To act effectively, these robots rely on task and motion planning, which combines:
+
+- Discrete task planning — deciding which actions to take
+- Continuous motion planning — computing how to move safely and efficiently
+
+Discrete task planning struggles as the number of possible object and robot states grows. This project introduces an efficient alternative that learns task plans directly from human demonstrations.
+
+The human demonstrations are taken from the [BiCap dataset](https://davidevdual.github.io/BiCap/).
+
+## 🧠 Key Contributions
+
+**1. Human-Demonstrated Task Plan Dataset**
+
+15 participants performed three Activities of Daily Living (ADLs).
+An RGB camera recorded hand-object interactions.
+A human expert annotated 4,026 task plans using a Bio-Inspired Action Context-Free Grammar (BACFG).
+
+**2. LSTM-Based Task Planner**
+
+A Long Short-Term Memory (LSTM) neural network was trained on the annotated demonstrations.
+The model learns to infer symbolic task plans for both seen and unseen manipulation goals.
+This replaces slow symbolic search with fast sequence prediction.
+
+**3. Performance Evaluation**
+
+Four experiments compared the LSTM-based planner with Fast Downward, a classic symbolic task planner.
+Results show that the learned planner:
+
+Significantly reduces task planning time
+Maintains capability to generalize to new goals
+
+**4. Full Robot Integration**
+
+The learnt task planner was integrated with an RRT (Rapidly Exploring Random Tree) motion planner.
+A custom task execution framework couples high-level plans and robot motions.
+The full pipeline was deployed on a dual-arm robot prototype.
 
 ## Getting Started
 
