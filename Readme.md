@@ -1,6 +1,6 @@
-# Learning-Based Task Planner for Dual-Arm Manipulation
+# 🦾 Learning-Based Task Planning for Dual-Arm Manipulation
 
-Simple overview of use/purpose.
+This project proposes a learning-driven task planner for dual-arm robotic manipulation, designed to overcome the combinatorial explosion that plagues conventional task-and-motion planning (TAMP) systems.
 
 ## Description
 
