@@ -86,6 +86,7 @@ LfD_Planner/
 ├── executionTAMP/       
 │    └── executionTAMP.py			    # Infer the task and motion plan from a high-level goal  
 ├── grammar/                            # BACFG grammar files and utilities and task plan execution framework
+├── results_FDComparison/		        # Results from comparison experiments with Fast Downward
 ├── Language_Model_many2many_novelty/
 │    ├── input_comparisons/             # Input comparison files for experiments
 │    ├── models/                        # Trained models for experiments
