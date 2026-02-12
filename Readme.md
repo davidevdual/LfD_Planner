@@ -40,10 +40,10 @@ The human demonstrations are taken from the [BiCap dataset](https://davidevdual.
 
 ## Project Highlights
 
-- ✔️ 4k+ human task plans annotated using a structured grammar
-- ✔️ Learnt task planner outperforms a classical AI planner
-- ✔️ End-to-end system deployed on a real robot
-- ✔️ Reduction of combinatorial explosion via demonstration learning
+- 4k+ human task plans annotated using a structured grammar
+- Learnt task planner outperforms a classical AI planner
+- End-to-end system deployed on a real robot
+- Reduction of combinatorial explosion via demonstration learning
 
 ## Getting Started
 
