@@ -117,7 +117,7 @@ David Carmona: [dcmoreno@nus.edu.sg](dcmoreno@nus.edu.sg)
 
 ## Version History
 
-* 0.1
+* **0.1
     * Initial Release
 
 ## License
