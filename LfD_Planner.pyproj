@@ -274,7 +274,7 @@
     <Folder Include="datasets\Exp1_Normal\" />
     <Folder Include="datasets\Exp2_Combinations\" />
     <Folder Include="datasets\Exp3_Positions\" />
-    <Folder Include="datasets\Exp_4\" />
+    <Folder Include="datasets\Exp4_Normal\" />
     <Folder Include="executionTAMP" />
     <Folder Include="grammar\ply\" />
     <Folder Include="grammar\ply\__pycache__\" />
@@ -283,6 +283,10 @@
     <Folder Include="grammar\" />
     <Folder Include="classical_task_planning\" />
     <Folder Include="Language_Model_many2many_novelty\models\" />
+    <Folder Include="Language_Model_many2many_novelty\models\Exp1_Normal\" />
+    <Folder Include="Language_Model_many2many_novelty\models\Exp2_Combinations\" />
+    <Folder Include="Language_Model_many2many_novelty\models\Exp3_Positions\" />
+    <Folder Include="Language_Model_many2many_novelty\models\Exp4_Normal\" />
     <Folder Include="Language_Model_many2many_novelty\results\" />
     <Folder Include="Language_Model_many2many_novelty\results\max_epochs=1.0\" />
     <Folder Include="Language_Model_many2many_novelty\results\max_epochs=1.0\batch_size=300.0\" />
@@ -1760,13 +1764,14 @@
     <Content Include="datasets\Exp3_Positions\annotations_video_IRB_6thPost.csv" />
     <Content Include="datasets\Exp3_Positions\annotations_video_IRB_7thPost.csv" />
     <Content Include="datasets\Exp3_Positions\annotations_video_IRB_8thPost.csv" />
-    <Content Include="datasets\Exp_4\annotations_video_IRB.csv" />
-    <Content Include="datasets\Exp_4\annotations_video_IRB_open.csv" />
-    <Content Include="datasets\Exp_4\annotations_video_IRB_pass.csv" />
-    <Content Include="datasets\Exp_4\annotations_video_IRB_pour.csv" />
+    <Content Include="datasets\Exp4_Normal\annotations_video_IRB.csv" />
+    <Content Include="datasets\Exp4_Normal\annotations_video_IRB_open.csv" />
+    <Content Include="datasets\Exp4_Normal\annotations_video_IRB_pass.csv" />
+    <Content Include="datasets\Exp4_Normal\annotations_video_IRB_pour.csv" />
     <Content Include="grammar\ply\__pycache__\lex.cpython-37.pyc" />
     <Content Include="grammar\ply\__pycache__\yacc.cpython-37.pyc" />
     <Content Include="grammar\ply\__pycache__\__init__.cpython-37.pyc" />
+    <Content Include="Language_Model_many2many_novelty\exp_comparisons.xlsx" />
     <Content Include="Language_Model_many2many_novelty\input_comparisons\input_Exp1_knownTasks.csv" />
     <Content Include="Language_Model_many2many_novelty\input_comparisons\input_Exp1_unknownTasks.csv" />
     <Content Include="Language_Model_many2many_novelty\input_comparisons\input_open_Exp4_knownTasks.csv" />
@@ -1781,10 +1786,31 @@
     <Content Include="Language_Model_many2many_novelty\input_comparisons\input_pour_Exp4_knownTasks_updated.csv" />
     <Content Include="Language_Model_many2many_novelty\input_comparisons\input_pour_Exp4_unknownTasks.csv" />
     <Content Include="Language_Model_many2many_novelty\input_comparisons\input_pour_Exp4_unknownTasks_updated.csv" />
-    <Content Include="Language_Model_many2many_novelty\models\model_exp4.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp1_Normal\model_exp1.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp2_Combinations\model_exp2_1stComb.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp2_Combinations\model_exp2_2ndComb.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp2_Combinations\model_exp2_3rdComb.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp2_Combinations\model_exp2_4thComb.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp2_Combinations\model_exp2_5thComb.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp2_Combinations\model_exp2_6thComb.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp2_Combinations\model_exp2_7thComb.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp2_Combinations\model_exp2_8thComb.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp3_Positions\model_exp3_1stPost.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp3_Positions\model_exp3_2ndPost.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp3_Positions\model_exp3_3rdPost.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp3_Positions\model_exp3_4thPost.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp3_Positions\model_exp3_5thPost.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp3_Positions\model_exp3_6thPost.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp3_Positions\model_exp3_7thPost.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp3_Positions\model_exp3_8thPost.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp4_Normal\model_exp4_open.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp4_Normal\model_exp4_pass.pth" />
+    <Content Include="Language_Model_many2many_novelty\models\Exp4_Normal\model_exp4_pour.pth" />
     <Content Include="Language_Model_many2many_novelty\results\max_epochs=1.0\batch_size=300.0\sequence_length=7.0\learning_rate=0.005\lstm_size=128.0\embedding_dim=128.0\num_layers=1.0\dropout=0.0\trained_models\testing.csv" />
     <Content Include="Language_Model_many2many_novelty\results\max_epochs=1.0\batch_size=300.0\sequence_length=7.0\learning_rate=0.005\lstm_size=128.0\embedding_dim=128.0\num_layers=1.0\dropout=0.0\trained_models\training.csv" />
     <Content Include="Language_Model_many2many_novelty\results\resultsFile_folder\results.csv" />
+    <Content Include="License.md" />
+    <Content Include="Readme.md" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

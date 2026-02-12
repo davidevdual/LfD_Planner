@@ -17,31 +17,31 @@ The human demonstrations are taken from the [BiCap dataset](https://davidevdual.
 
 **1. Human-Demonstrated Task Plan Dataset**
 
-15 participants performed three Activities of Daily Living (ADLs).
-An RGB camera recorded hand-object interactions.
-A human expert annotated 4,026 task plans using a Bio-Inspired Action Context-Free Grammar (BACFG).
+- 15 participants performed three Activities of Daily Living (ADLs).
+- An RGB camera recorded hand-object interactions.
+- A human expert annotated 4,026 task plans using a Bio-Inspired Action Context-Free Grammar (BACFG).
 
 **2. LSTM-Based Task Planner**
 
-A Long Short-Term Memory (LSTM) neural network was trained on the annotated demonstrations.
-The model learns to infer symbolic task plans for both seen and unseen manipulation goals.
-This replaces slow symbolic search with fast sequence prediction.
+- A Long Short-Term Memory (LSTM) neural network was trained on the annotated demonstrations.
+- The model learns to infer symbolic task plans for both seen and unseen manipulation goals.
+- This replaces slow symbolic search with fast sequence prediction.
 
 **3. Performance Evaluation**
 
-Four experiments compared the LSTM-based planner with Fast Downward, a classic symbolic task planner.
-Results show that the learnt planner significantly reduces task planning time.
+- Four experiments compared the LSTM-based planner with Fast Downward, a classic symbolic task planner.
+- Results show that the learnt planner significantly reduces task planning time.
 
 **4. Full Robot Integration**
 
-The learnt task planner was integrated with an RRT (Rapidly Exploring Random Tree) motion planner.
-A custom task execution framework couples high-level plans and robot motions.
-The full pipeline was deployed on a dual-arm robot prototype.
+- The learnt task planner was integrated with an RRT (Rapidly Exploring Random Tree) motion planner.
+- A custom task execution framework couples high-level plans and robot motions.
+- The full pipeline was deployed on a dual-arm robot prototype.
 
 ## Project Highlights
 
 - ✔️ 4k+ human task plans annotated using a structured grammar
-- ✔️ Learned task planner outperforms a classical AI planner
+- ✔️ Learnt task planner outperforms a classical AI planner
 - ✔️ End-to-end system deployed on a real robot
 - ✔️ Reduction of combinatorial explosion via demonstration learning
 
@@ -67,7 +67,7 @@ The full pipeline was deployed on a dual-arm robot prototype.
 
 * Install Visual Studio Community 2022 or the latest version from https://visualstudio.microsoft.com/downloads/
 * Download and build the Fast Downward planning system 20.06 planner as per the instructions on their website
-Some basic Git commands are:
+* Clone this project repository:
 ```
 git clone https://github.com/davidevdual/LfD_Planner.git
 ```
@@ -106,7 +106,7 @@ LfD_Planner/
 
 * For running the comparison tests between the LSTM-based planner and Fast Downward planner, navigate to the Language_Model_many2many_novelty/ directory and run:
 ```
-* performance_testing.py
+performance_testing.py
 ```
 * The various experiments can be run by changing the parameters in the performance_testing.py file. The file exp_comparisons.xlsx contains the input configurations for each experiment.
 
